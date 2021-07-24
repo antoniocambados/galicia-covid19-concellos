@@ -1,9 +1,11 @@
-.navbar-item {
-    flex-direction: column;
+.navbar-brand {
+    .navbar-item {
+        flex-direction: column;
 
-    img {
-        width: 200px;
-        max-width: 250px;
-        max-height: 2rem;
+        // img {
+        //     width: 200px;
+        //     max-width: 250px;
+        //     max-height: 2rem;
+        // }
     }
 }

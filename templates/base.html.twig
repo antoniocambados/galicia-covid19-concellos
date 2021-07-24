@@ -16,9 +16,26 @@
                     <strong>CONCELLOS</strong>
                 </a>
             </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <a href="https://github.com/antoniocambados/galicia-covid19-concellos" target="_blank">
+                        <img src="/img/github.svg" alt="Github">
+                    </a>
+                </div>
+            </div>
         </nav>
         {% endblock %}
         {% block body %}{% endblock %}
+        {% block footer %}
+        <footer class="footer has-background-primary has-text-light">
+            <div class="content has-text-centered">
+                <p>Datos obtidos de <a class="has-text-primary-light" href="https://github.com/lipido/galicia-covid19" target="_blank">https://github.com/lipido/galicia-covid19</a></p>
+                {% if updateDate is defined and updateDate %}
+                    <p>Última actualización: {{ updateDate|date('Y-m-d H:i:s', 'Europe/Madrid') }}</p>
+                {% endif %}
+            </div>
+        </footer>
+        {% endblock %}
         {% block javascripts %}
             <script src="/build/app.js" defer></script>
         {% endblock %}

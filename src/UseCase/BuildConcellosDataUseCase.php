@@ -4,7 +4,6 @@ namespace App\UseCase;
 
 use League\Csv\Reader;
 use League\Csv\Writer;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
@@ -13,11 +12,10 @@ class BuildConcellosDataUseCase
     protected GetConcellosUseCase $concellosUseCase;
     private string $publicPath;
 
-    public function __construct(GetConcellosUseCase $concellosUseCase, ParameterBagInterface $parameterBag)
+    public function __construct(GetConcellosUseCase $concellosUseCase, string $publicPath)
     {
         $this->concellosUseCase = $concellosUseCase;
-        $projectDir             = (string) $parameterBag->get('kernel.project_dir');
-        $this->publicPath       = $projectDir . '/public';
+        $this->publicPath       = $publicPath;
     }
 
     public function __invoke(): void

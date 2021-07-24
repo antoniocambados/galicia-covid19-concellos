@@ -55,6 +55,11 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "build": [
+            "@auto-scripts",
+            "yarn build",
+            "php bin/console dump-static-site"
         ]
     },
     "conflict": {

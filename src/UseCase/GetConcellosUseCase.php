@@ -4,7 +4,7 @@ namespace App\UseCase;
 
 use League\Csv\Reader;
 
-class GetConcellos
+class GetConcellosUseCase
 {
     const SOURCE = __DIR__.'/../../../galicia-covid19/scripts/municipios-habitantes.csv';
 

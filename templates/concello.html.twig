@@ -7,7 +7,20 @@
 {% block body %}
     <section class="section">
         <div class="box">
-            <h1 class="title is-1">{{ concello|default }}</h1>
+            <div class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <h1 class="title is-1">{{ concello|default }}</h1>
+                    </div>
+                </div>
+                <div class="level-right">
+                    <div class="level-item buttons are-small">
+                        <a href="/data/{{ concello }}.csv" target="_blank" class="button is-success">Descargar CSV</a>
+                        <a href="/data/{{ concello }}.json" target="_blank" class="button is-info">Descargar JSON</a>
+                    </div>
+                </div>
+            </div>
+            
             <div id="casos" style="width:800; height:500px;"></div>
         </div>
     </section>
@@ -17,6 +30,6 @@
         {{ block('concellos') }}
     </section>
     <script>
-        var data = {{ data|json_encode()|raw }};
+        window.concello = '{{ concello }}';
     </script>
 {% endblock %}

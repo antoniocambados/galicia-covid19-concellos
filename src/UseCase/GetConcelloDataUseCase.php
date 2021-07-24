@@ -6,15 +6,17 @@ use App\UseCase\GetConcelloDataMessage;
 use League\Csv\Reader;
 use League\Csv\Statement;
 use League\Csv\Writer;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Finder\Finder;
 
-class GetConcelloData
+class GetConcelloDataUseCase
 {
     private string $publicPath;
 
-    public function __construct(string $publicPath)
+    public function __construct(ParameterBagInterface $parameterBag)
     {
-        $this->publicPath = $publicPath;
+        $projectDir       = (string) $parameterBag->get('kernel.project_dir');
+        $this->publicPath = $projectDir . '/public';
     }
 
     public function __invoke(GetConcelloDataMessage $message): array

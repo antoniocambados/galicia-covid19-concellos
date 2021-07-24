@@ -3,14 +3,14 @@
 namespace App\StaticDump;
 
 use App\Controller\ConcelloController;
-use App\UseCase\GetConcellos;
+use App\UseCase\GetConcellosUseCase;
 use Symplify\SymfonyStaticDumper\Contract\ControllerWithDataProviderInterface;
 
 class ConcelloControllerWithDataProvider implements ControllerWithDataProviderInterface
 {
-    protected GetConcellos $concellosUseCase;
+    protected GetConcellosUseCase $concellosUseCase;
 
-    public function __construct(GetConcellos $concellosUseCase)
+    public function __construct(GetConcellosUseCase $concellosUseCase)
     {
         $this->concellosUseCase = $concellosUseCase;
     }
@@ -31,7 +31,6 @@ class ConcelloControllerWithDataProvider implements ControllerWithDataProviderIn
     public function getArguments(): array
     {
         $concellos = $this->concellosUseCase->__invoke();
-        $concellos = [$concellos[0]];
 
         return array_map(function($item) {
             return $item['municipio'];

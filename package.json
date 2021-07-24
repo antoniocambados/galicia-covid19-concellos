@@ -17,6 +17,8 @@
     },
     "dependencies": {
         "bulma": "^0.9.3",
-        "echarts": "^5.1.2"
+        "echarts": "^5.1.2",
+        "sweetalert2": "^11.0.20",
+        "whatwg-fetch": "^3.6.2"
     }
 }

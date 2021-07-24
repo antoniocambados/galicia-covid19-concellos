@@ -2,14 +2,14 @@
 
 namespace App\Controller;
 
-use App\UseCase\GetConcellos;
+use App\UseCase\GetConcellosUseCase;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomepageController extends AbstractController
 {
-    protected GetConcellos $concellosUseCase;
+    protected GetConcellosUseCase $concellosUseCase;
 
-    public function __construct(GetConcellos $concellosUseCase)
+    public function __construct(GetConcellosUseCase $concellosUseCase)
     {
         $this->concellosUseCase = $concellosUseCase;
     }

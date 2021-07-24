@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+// Set your brand colors
+$blue: #358bd2;
+
+// Update Bulma's global variables
+$family-sans-serif: "Montserrat", sans-serif;
+$primary: $blue;
+$link: $primary;
+
+@import "~bulma/sass/utilities/_all.sass";
+@import "~bulma/sass/base/_all.sass";
+@import "~bulma/sass/elements/button.sass";
+@import "~bulma/sass/elements/box.sass";
+@import "~bulma/sass/elements/container.sass";
+@import "~bulma/sass/elements/tag.sass";
+@import "~bulma/sass/elements/title.sass";
+@import "~bulma/sass/form/_all.sass";
+@import "~bulma/sass/components/navbar.sass";
+@import "~bulma/sass/layout/hero.sass";
+@import "~bulma/sass/layout/section.sass";
+@import "~bulma/sass/grid/columns.sass";
+@import "~bulma/sass/helpers/color.sass";
+
+@import "header";

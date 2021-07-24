@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% use "_blocks.html.twig" %}
+
+{% block title %}{{ concello|default }} | {{ parent() }}{% endblock %}
+
+{% block body %}
+    <section class="section">
+        <div class="box">
+            <h1 class="title is-1">{{ concello|default }}</h1>
+            <div id="casos" style="width:800; height:500px;"></div>
+        </div>
+    </section>
+    <section class="section">
+        <h2 class="title is-2">Concellos</h2>
+
+        {{ block('concellos') }}
+    </section>
+    <script>
+        var data = {{ data|json_encode()|raw }};
+    </script>
+{% endblock %}

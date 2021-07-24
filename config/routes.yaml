@@ -1,0 +1,7 @@
+index:
+    path: /
+    controller: App\Controller\HomepageController
+
+concello:
+    path: /concello/{concello}
+    controller: App\Controller\ConcelloController

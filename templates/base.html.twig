@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Evolución Covid-19 en municipios de Galicia{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="/build/app.css">
+        {% endblock %}
+    </head>
+    <body class="has-background-light">
+        {% block header %}
+        <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="/">
+                    <img src="/img/logo.svg" alt="Datos Coronavirus">
+                    <strong>CONCELLOS</strong>
+                </a>
+            </div>
+        </nav>
+        {% endblock %}
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+            <script src="/build/app.js" defer></script>
+        {% endblock %}
+    </body>
+</html>

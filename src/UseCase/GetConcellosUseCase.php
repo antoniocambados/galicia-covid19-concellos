@@ -5,12 +5,17 @@ namespace App\UseCase;
 use League\Csv\Reader;
 
 class GetConcellosUseCase
-{
-    const SOURCE = __DIR__.'/../../../galicia-covid19/scripts/municipios-habitantes.csv';
+{    
+    private string $repoPath;
+
+    public function __construct(string $repoPath)
+    {
+        $this->repoPath = $repoPath;
+    }
 
     public function __invoke(): array
     {
-        $reader = Reader::createFromPath(self::SOURCE, 'r');
+        $reader = Reader::createFromPath(sprintf('%s/scripts/municipios-habitantes.csv', rtrim($this->repoPath, '/')), 'r');
         $reader->setHeaderOffset(0);
         
         return array_values(iterator_to_array($reader->getRecords()));

@@ -38,7 +38,7 @@ function getCasosOptions() {
     },
     tooltip: {
       trigger: "axis",
-      alwaysShowContent: true,
+      // alwaysShowContent: true,
     },
     toolbox: {
       show: true,

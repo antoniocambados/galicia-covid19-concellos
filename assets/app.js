@@ -34,8 +34,13 @@ function getCasosOptions() {
   return {
     animation: false,
     legend: {
-      data: ["Positivos nos últimos 14 días", "Positivos nos últimos 7 días"],
+      data: ["Positivos 14 días", "Positivos 7 días"],
     },
+    // title: {
+    //   text: `Evolución de positivos en ${concello}`,
+    //   top: 'top',
+    //   left: 'center'
+    // },
     tooltip: {
       trigger: "axis",
       // alwaysShowContent: true,
@@ -43,9 +48,12 @@ function getCasosOptions() {
     toolbox: {
       show: true,
       feature: {
-        magicType: { type: ["line", "bar"] },
-        restore: {},
-        saveAsImage: {},
+        // magicType: { type: ["line", "bar"] },
+        // restore: {},
+        saveAsImage: {
+          name: `galicia-covid19-concello - ${concello}`,
+          title: 'Gardar imaxe',
+        },
       },
     },
     xAxis: {
@@ -69,13 +77,13 @@ function getCasosOptions() {
     ],
     series: [
       {
-        name: "Positivos nos últimos 14 días",
+        name: "Positivos 14 días",
         data: series14,
         type: "line",
         smooth: true,
       },
       {
-        name: "Positivos nos últimos 7 días",
+        name: "Positivos 7 días",
         data: series7,
         type: "line",
         smooth: true,

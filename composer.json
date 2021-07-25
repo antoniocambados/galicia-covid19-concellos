@@ -65,7 +65,7 @@
             "cd output && git init",
             "cd output && git add .",
             "cd output && git commit -m \"Update static website\"",
-            "cd output && git remote add origin git@github.com:antoniocambados/galicia-covid19-concellos-static.git 2>/dev/null",
+            "cd output && git remote set-url origin git@github.com:antoniocambados/galicia-covid19-concellos-static.git",
             "cd output && git push origin master"
         ]
     },

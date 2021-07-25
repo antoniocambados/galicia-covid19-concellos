@@ -9,10 +9,12 @@ use Twig\TwigFunction;
 class CacheBustExtension extends AbstractExtension
 {
     private string $repoPath;
+    private ?string $commit;
 
     public function __construct(string $repoPath)
     {
         $this->repoPath = $repoPath;
+        $this->commit   = null;
     }
 
     public function getFunctions()
@@ -22,14 +24,16 @@ class CacheBustExtension extends AbstractExtension
         ];
     }
 
-    public function bust(string $url)
+    public function bust(string $url): string
     {
-        $repository = new Repository($this->repoPath);
-        $commit     = $repository->getHeadCommit();
+        if (!$this->commit) {
+            $repository   = new Repository($this->repoPath);
+            $commit       = $repository->getHeadCommit();
+            $this->commit = $commit ? $commit->getHash() : null;
+        }
         
-        if ($commit) {
-            $hash      = $commit->getHash();
-            $bust      = sprintf('v=%s', $hash);
+        if ($this->commit) {
+            $bust      = sprintf('v=%s', $this->commit);
             $separator = stripos($url, '?') !== false ? '&' : '?';
 
             return sprintf('%s%s%s', $url, $separator, $bust);

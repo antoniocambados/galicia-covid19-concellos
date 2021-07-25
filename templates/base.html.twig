@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <title>{% block title %}Evolución Covid-19 en municipios de Galicia{% endblock %}</title>
         {% block stylesheets %}
-            <link rel="stylesheet" href="/build/app.css">
+            <link rel="stylesheet" href="{{ bust('/build/app.css') }}">
         {% endblock %}
     </head>
     <body class="has-background-light">
@@ -63,7 +63,7 @@
         </footer>
         {% endblock %}
         {% block javascripts %}
-            <script src="/build/app.js" defer></script>
+            <script src="{{ bust('/build/app.js') }}" defer></script>
         {% endblock %}
     </body>
 </html>

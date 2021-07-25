@@ -29,6 +29,10 @@ services:
         arguments:
             $publicPath: '%public_path%'
 
+    App\Twig\CacheBustExtension:
+        arguments:
+            $repoPath: '%kernel.project_dir%'
+
     App\UseCase\BuildConcellosDataUseCase:
         arguments:
             $publicPath: '%public_path%'

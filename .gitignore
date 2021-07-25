@@ -1,4 +1,5 @@
 /public/data
+/output
 
 ###> symfony/framework-bundle ###
 /.env.local

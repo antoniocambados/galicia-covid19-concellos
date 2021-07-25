@@ -1,18 +1,14 @@
 {% block concellos %}
-    <div class="columns">
+    <div class="concellos">
         {% set nombres = concellos|sort((a, b) => a.municipio <=> b.municipio)|column('municipio') %}
-        {% for row in nombres|batch(nombres|length / 6) %}
-        <div class="column">
-            <ul>
-            {% for nombre in row %}
-                <li>
-                    <a href="{{ path('concello', {'concello': nombre }) }}" class="{% if nombre == concello|default %}tag is-link is-normal{% endif %}">
-                        {{ nombre }}
-                    </a>
-                </li>
-            {% endfor %}
-            </ul>
-        </div>
+        <ul>
+        {% for nombre in nombres %}
+            <li>
+                <a href="{{ path('concello', {'concello': nombre }) }}" class="{% if nombre == concello|default %}tag is-link is-normal{% endif %}">
+                    {{ nombre }}
+                </a>
+            </li>
         {% endfor %}
+        </ul>
     </div>
 {% endblock %}

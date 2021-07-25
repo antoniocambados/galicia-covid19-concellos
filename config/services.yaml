@@ -32,6 +32,7 @@ services:
     App\UseCase\BuildConcellosDataUseCase:
         arguments:
             $publicPath: '%public_path%'
+            $repoPath: '%source_repo_path%'
 
     App\UseCase\GetConcelloDataUseCase:
         arguments:

@@ -11,11 +11,13 @@ class BuildConcellosDataUseCase
 {
     protected GetConcellosUseCase $concellosUseCase;
     private string $publicPath;
+    private string $repoPath;
 
-    public function __construct(GetConcellosUseCase $concellosUseCase, string $publicPath)
+    public function __construct(GetConcellosUseCase $concellosUseCase, string $publicPath, string $repoPath)
     {
         $this->concellosUseCase = $concellosUseCase;
         $this->publicPath       = $publicPath;
+        $this->repoPath         = $repoPath;
     }
 
     public function __invoke(): void
@@ -28,7 +30,7 @@ class BuildConcellosDataUseCase
         ];
 
         $finder = new Finder();
-        $finder->files()->in(__DIR__.'/../../../galicia-covid19/incidencia-municipios');
+        $finder->files()->in(sprintf('%s/incidencia-municipios', rtrim($this->repoPath, '/')));
         $this->clearOutputPath();
 
         foreach ($finder as $file) {

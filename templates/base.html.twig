@@ -34,13 +34,29 @@
         {% endblock %}
         {% block body %}{% endblock %}
         {% block footer %}
-        <footer class="footer has-background-primary has-text-light">
-            <div class="content has-text-centered">
-                <p class="">
-                    <a class="has-text-primary-light" href="https://github.com/antoniocambados/galicia-covid19-concellos" target="_blank">Código fonte</a>
-                    | <a class="has-text-primary-light" href="https://github.com/lipido/galicia-covid19" target="_blank">Orixe de datos</a>
+        <footer class="hero is-primary">
+            <div class="hero-body content has-text-centered">
+                <h4 class="title is-4">Datos da COVID-19 en Concellos de Galicia</h4>
+                <div class="buttons is-centered">
+                    <a class="button is-primary"  href="https://github.com/antoniocambados/galicia-covid19-concellos" target="_blank">
+                        <span class="icon"><img src="/img/github.svg" alt="GitHub"></span>
+                        <span>Código fonte</span>
+                    </a>
+                    <a  class="button is-primary" href="https://twitter.com/antoniocambados" target="_blank">
+                        <span class="icon"><img src="/img/twitter.svg" alt="Twitter"></span>
+                        <span>@antoniocambados</span>
+                    </a>
+                    <a class="button is-primary"  href="https://github.com/lipido/galicia-covid19" target="_blank">
+                        <span class="icon"><img src="/img/github.svg" alt="GitHub"></span>
+                        <span>Orixe de datos</span>
+                    </a>
+                    <a class="button is-primary"  href="https://coronavirus.sergas.es/datos/#/gl-ES/galicia" target="_blank">
+                        <span class="icon"><img src="/img/sergas.svg" alt="Sergas"></span>
+                        <span>Web oficial de datos do Sergas</span>
+                    </a>
+                </div>
                 {% if updateDate is defined and updateDate %}
-                    | Última actualización: {{ updateDate|date('Y-m-d H:i:s', 'Europe/Madrid') }}
+                    <p>Última actualización: {{ updateDate|date('Y-m-d H:i:s', 'Europe/Madrid') }}</p>
                 {% endif %}
                 </p>
             </div>

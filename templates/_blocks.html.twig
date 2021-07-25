@@ -4,7 +4,7 @@
         <ul>
         {% for nombre in nombres %}
             <li>
-                <a href="{{ path('concello', {'concello': nombre }) }}" class="{% if nombre == concello|default %}tag is-link is-normal{% endif %}">
+                <a href="{{ path('concello', {'concello': nombre }) }}" class="{% if nombre == concello|default %}has-text-dark has-text-weight-bold{% endif %}">
                     {{ nombre }}
                 </a>
             </li>

@@ -29,10 +29,13 @@
         {% block footer %}
         <footer class="footer has-background-primary has-text-light">
             <div class="content has-text-centered">
-                <p>Datos obtidos de <a class="has-text-primary-light" href="https://github.com/lipido/galicia-covid19" target="_blank">https://github.com/lipido/galicia-covid19</a></p>
+                <p class="">
+                    <a class="has-text-primary-light" href="https://github.com/antoniocambados/galicia-covid19-concellos" target="_blank">Código fonte</a>
+                    | <a class="has-text-primary-light" href="https://github.com/lipido/galicia-covid19" target="_blank">Orixe de datos</a>
                 {% if updateDate is defined and updateDate %}
-                    <p>Última actualización: {{ updateDate|date('Y-m-d H:i:s', 'Europe/Madrid') }}</p>
+                    | Última actualización: {{ updateDate|date('Y-m-d H:i:s', 'Europe/Madrid') }}
                 {% endif %}
+                </p>
             </div>
         </footer>
         {% endblock %}

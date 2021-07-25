@@ -10,6 +10,7 @@ $blue: #358bd2;
 $family-sans-serif: "Montserrat", sans-serif;
 $primary: $blue;
 $link: $primary;
+$navbar-breakpoint: 480px;
 
 @import "~bulma/sass/utilities/_all.sass";
 @import "~bulma/sass/base/_all.sass";
@@ -29,6 +30,8 @@ $link: $primary;
 @import "~bulma/sass/grid/columns.sass";
 @import "~bulma/sass/helpers/color.sass";
 @import "~bulma/sass/helpers/typography.sass";
+@import "~bulma/sass/helpers/spacing.sass";
 @import "~sweetalert2/src/sweetalert2.scss";
 @import "concellos";
 @import "header";
+@import "switch";

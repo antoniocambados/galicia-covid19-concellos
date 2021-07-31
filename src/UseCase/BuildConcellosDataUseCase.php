@@ -24,9 +24,10 @@ class BuildConcellosDataUseCase
     {
         $concellos = [];
         $headers   = [
-            "fecha", "codigo_municipio", "municipio", "habitantes", 
-            "casos_14d", "casos_14d_min", "casos_14d_max", "IA14", "IA14_min", "IA14_max", 
-            "casos_7d", "casos_7d_min", "casos_7d_max", "IA7", "IA7_min", "IA7_max",
+            // "fecha", "codigo_municipio", "municipio", "habitantes", 
+            // "casos_14d", "casos_14d_min", "casos_14d_max", "IA14", "IA14_min", "IA14_max", 
+            // "casos_7d", "casos_7d_min", "casos_7d_max", "IA7", "IA7_min", "IA7_max",
+            "fecha", "municipio", "habitantes", "casos_14d", "casos_7d",
         ];
 
         $finder = new Finder();

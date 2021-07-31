@@ -5,9 +5,11 @@ import Swal from "sweetalert2";
 
 window.casosChart = echarts.init(document.getElementById("casos"));
 let toggle_7dx2   = document.getElementById("7dx2");
+let toggle_ia     = document.getElementById("ia");
 let series14      = [];
 let series7       = [];
 let series7x2     = [];
+let habitantes    = 0;
 
 window
   .fetch(`/data/${concello}.json`)
@@ -22,6 +24,10 @@ window
       ]);
       series7.push([line.fecha, line.casos_7d ? Number(line.casos_7d) : null]);
       series7x2.push([line.fecha, line.casos_7d ? Number(line.casos_7d * 2) : null]);
+
+      if (habitantes <= 0 && line.habitantes) {
+        habitantes = Number(line.habitantes);
+      }
     });
     window.casosChart.setOption(getCasosOptions());
   })
@@ -33,26 +39,29 @@ window
     });
   });
 
-function getChartSeries(doubleSeries7 = false) {
+function getChartSeries(showIa = false, doubleSeries7 = false) {
   return [
     {
-      name: "Positivos 14 días",
-      data: series14,
+      name: (showIa ? "IA " : "Positivos ") + "14 días",
+      data: showIa ? series14.map(item => { return [item[0], (100000 * item[1] / habitantes).toFixed(2)]; }) : series14,
       type: "line",
       smooth: true,
     },
     {
-      name: "Positivos 7 días" + (doubleSeries7 ? ' × 2' : ''),
-      data: doubleSeries7 ? series7x2 : series7,
+      name: (showIa ? "IA " : "Positivos ") + "7 días" + (doubleSeries7 ? ' × 2' : ''),
+      data: (doubleSeries7 ? series7x2 : series7).map(item => { return showIa ? [item[0], (100000 * item[1] / habitantes).toFixed(2)] : item; }),
       type: "line",
       smooth: true,
     },
   ]
 }
 
-function updateSeries(doubleSeries7 = false) {
+function updateSeries() {
+  let showIa        = !!toggle_ia.checked;
+  let doubleSeries7 = !!toggle_7dx2.checked;
+
   window.casosChart.setOption({
-    series: getChartSeries(doubleSeries7),
+    series: getChartSeries(showIa, doubleSeries7),
   });
 }
 
@@ -107,7 +116,7 @@ function getCasosOptions() {
         minValueSpan: 3600 * 24 * 1000 * 14,
       },
     ],
-    series: getChartSeries(!!toggle_7dx2.checked),
+    series: getChartSeries(),
   };
 }
 
@@ -116,7 +125,9 @@ window.addEventListener("resize", (e) => {
 });
 
 toggle_7dx2.addEventListener("change", (e) => {
-  let multiply = !!e.target.checked ;
+  updateSeries();
+});
 
-  updateSeries(multiply);
+toggle_ia.addEventListener("change", (e) => {
+  updateSeries();
 });

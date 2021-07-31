@@ -1,0 +1,18 @@
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background-color: $grey-lightest;
+    margin: 1rem 0;
+    border-radius: 4px;
+    align-items: center;
+
+    .toolbar-item {
+        display: flex;
+        align-items: center;
+
+        > * {
+            white-space: nowrap;
+        }
+    }
+}

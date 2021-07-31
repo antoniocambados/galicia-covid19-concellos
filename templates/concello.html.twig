@@ -15,22 +15,32 @@
                 </div>
                 <div class="level-right">
                     <div class="level-item buttons are-small">
-                        <a href="/data/{{ concello }}.csv" target="_blank" class="button is-success">Descargar CSV</a>
-                        <a href="/data/{{ concello }}.json" target="_blank" class="button is-info">Descargar JSON</a>
+                        <a href="/data/{{ concello }}.csv" target="_blank" class="button is-success"><span class="">Descargar </span>CSV</a>
+                        <a href="/data/{{ concello }}.json" target="_blank" class="button is-info"><span class="">Descargar </span> JSON</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="control my-3 has-text-right">
-                <label class="label is-small has-text-weight-normal" title="Multiplicar por 2 a serie de positivos a 7 días">
-                    <div class="switch is-small">
-                        <input id="7dx2" type="checkbox">
-                        <span class="slider round"></span>
-                    </div>
-                    7 días × 2
-                </label>
+            <div class="toolbar">
+                <div class="toolbar-item">
+                    <small>Opcións da gráfica</small>
+                </div>
+                <div class="toolbar-item">
+                    <label class="is-size-7" title="Amosar Incidencia Acumulada">
+                        <div class="switch is-small">
+                            <input id="ia" type="checkbox">
+                            <span class="slider round"></span>
+                        </div>
+                        IA
+                    </label>
+                    <label class="is-size-7" title="Multiplicar por 2 a serie de positivos a 7 días">
+                        <div class="switch is-small">
+                            <input id="7dx2" type="checkbox">
+                            <span class="slider round"></span>
+                        </div>
+                        7 días × 2
+                    </label>
+                </div>
             </div>
-
             <div id="casos" style="width:800; height:500px;"></div>
         </div>
     </section>

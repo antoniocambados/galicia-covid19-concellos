@@ -2,6 +2,11 @@
 
 {% use "_blocks.html.twig" %}
 
+{% block metas_twitter_opengraph %}
+    {{ parent() }}
+    <meta property="og:title" content="{{ app_title }}">
+{% endblock %}
+
 {% block body %}
     <section class="section">
         <h1 class="title is-2">Concellos</h1>

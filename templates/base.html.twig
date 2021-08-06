@@ -3,7 +3,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{% block title %}Evolución Covid-19 en municipios de Galicia{% endblock %}</title>
+        <title>{% block title %}{{ app_title|default }}{% endblock %}</title>
+        {% block metas_twitter_opengraph %}
+            <meta property="og:locale" content="gl_ES">
+            <meta property="og:image" content="https://galicia-covid19-concellos.tonio.dev/img/logo.png">
+            <meta property="twitter:creator" content="@antoniocambados">
+            <meta property="twitter:card" content="summary">
+        {% endblock %}
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ bust('/build/app.css') }}">
         {% endblock %}
@@ -37,7 +43,7 @@
         {% block footer %}
         <footer class="hero is-primary">
             <div class="hero-body content has-text-centered">
-                <h4 class="title is-4">Datos da COVID-19 en Concellos de Galicia</h4>
+                <h4 class="title is-4">{{ app_title|default }}</h4>
                 <div class="buttons is-centered">
                     <a class="button is-primary"  href="https://github.com/antoniocambados/galicia-covid19-concellos" target="_blank">
                         <span class="icon"><img src="/img/github.svg" alt="GitHub"></span>

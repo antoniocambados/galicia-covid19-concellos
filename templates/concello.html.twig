@@ -2,7 +2,12 @@
 
 {% use "_blocks.html.twig" %}
 
-{% block title %}{{ concello|default }} | {{ parent() }}{% endblock %}
+{% block title %}{{ concello|default }} | {{ app_title }}{% endblock %}
+
+{% block metas_twitter_opengraph %}
+    {{ parent() }}
+    <meta property="og:title" content="{{ concello|default }} | {{ app_title }}">
+{% endblock %}
 
 {% block body %}
     <section class="section">

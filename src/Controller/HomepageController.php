@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\UseCase\GetConcellosUseCase;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 
 class HomepageController extends AbstractController
 {
@@ -14,7 +15,7 @@ class HomepageController extends AbstractController
         $this->concellosUseCase = $concellosUseCase;
     }
 
-    public function __invoke()
+    public function __invoke(): Response
     {
         $concellos = $this->concellosUseCase->__invoke();
 

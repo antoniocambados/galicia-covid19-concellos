@@ -16,7 +16,7 @@ class UpdateSourceDataUseCase
         $this->repoPath = $repoPath;
     }
 
-    public function __invoke()
+    public function __invoke(): void
     {
         if (!file_exists($this->repoPath)) {
             $repository = Admin::cloneTo($this->repoPath, self::SOURCE_REPO, false);

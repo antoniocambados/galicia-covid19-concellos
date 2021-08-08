@@ -17,7 +17,7 @@ class CacheBustExtension extends AbstractExtension
         $this->commit   = null;
     }
 
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('bust', [$this, 'bust']),

@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\UseCase\GetConcellosUseCase;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\HttpFoundation\Response;
 
 class ConcelloController extends AbstractController
 {
@@ -17,7 +17,7 @@ class ConcelloController extends AbstractController
         $this->publicPath       = $publicPath;
     }
 
-    public function __invoke(string $concello)
+    public function __invoke(string $concello): Response
     {
         $concellos = $this->concellosUseCase->__invoke();
 

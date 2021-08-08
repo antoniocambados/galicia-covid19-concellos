@@ -63,7 +63,7 @@ class GetConcelloDataUseCase
         return $municipios;
     }
 
-    private function getOutputPath(GetConcelloDataMessage $message)
+    private function getOutputPath(GetConcelloDataMessage $message): string
     {
         $folder = sprintf('%s/municipios', rtrim($this->publicPath, '/'));
 

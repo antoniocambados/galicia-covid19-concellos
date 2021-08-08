@@ -7,6 +7,7 @@
         "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
         "gitonomy/gitlib": "^1.2",
         "league/csv": "^9.7",
         "symfony/console": "5.3.*",

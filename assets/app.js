@@ -238,6 +238,16 @@ if (chartElement) {
     concellosChoices = new Choices(input_concellos, {
       choices,
       maxItemCount: 10,
+      loadingText: 'Cargando...',
+      noResultsText: 'Non se atoparon resultados',
+      noChoicesText: 'Non hai opcións entre as que escoller',
+      itemSelectText: 'Pulsa para engadir',
+      maxItemText: (maxItemCount) => {
+        return `Só se poden engadir ${maxItemCount} concellos`;
+      },
+      addItemText: (value) => {
+        return `Pulsa Enter para engadir <b>"${value}"</b>`;
+      },
     });
 
     input_concellos.addEventListener('addItem', event => {

@@ -1,0 +1,8 @@
+@import "~choices.js/src/styles/choices";
+
+.choices__list--multiple {
+  .choices__item {
+    background-color: $primary;
+    border-color: $primary;
+  }
+}

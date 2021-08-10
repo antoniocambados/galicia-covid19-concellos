@@ -29,7 +29,7 @@
                 <div class="toolbar-item">
                     <small>Opcións da gráfica</small>
                 </div>
-                <div class="toolbar-item">
+                <div id="regular-chart-user-options" class="toolbar-item">
                     <label class="is-size-7" title="Amosar Incidencia Acumulada">
                         <div class="switch is-small">
                             <input id="ia" type="checkbox">
@@ -45,8 +45,31 @@
                         7 días × 2
                     </label>
                 </div>
+                <div id="comparison-chart-user-options" class="toolbar-item is-hidden">
+                    <label class="is-size-7" title="Comparar datos a 7 días en vez de a 14">
+                        <div class="switch is-small">
+                            <input id="compare7d" type="checkbox">
+                            <span class="slider round"></span>
+                        </div>
+                        7 días
+                    </label>
+                </div>
             </div>
-            <div id="casos" style="width:800; height:500px;"></div>
+            <div id="chart" style="height:500px;"></div>
+        </div>
+
+        <div class="box mt-5 has-background-grey-lighter">
+            <div class="field">
+                <label class="label">Comparar concellos</label>
+                <div class="field is-grouped is-align-items-center">
+                    <p class="control is-expanded">
+                        <select id="input-concellos" multiple="multiple"></select>
+                    </p>
+                    <p class="control">
+                        <button class="button is-primary" type="button" id="compare-concellos">Comparar</button>
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
     <section class="section">

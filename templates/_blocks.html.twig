@@ -2,10 +2,10 @@
     <div class="concellos">
         {% set nombres = concellos|sort((a, b) => a.municipio <=> b.municipio)|column('municipio') %}
         <ul>
-        {% for nombre in nombres %}
+        {% for nome in nombres %}
             <li>
-                <a href="{{ path('concello', {'concello': nombre }) }}" class="{% if nombre == concello|default %}has-text-dark has-text-weight-bold{% endif %}">
-                    {{ nombre }}
+                <a href="{{ path('concello', {'concello': nome }) }}" class="{% if nome == concello|default %}has-text-dark has-text-weight-bold{% endif %}">
+                    {{ nome }}
                 </a>
             </li>
         {% endfor %}

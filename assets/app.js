@@ -237,6 +237,7 @@ if (chartElement) {
 
     concellosChoices = new Choices(input_concellos, {
       choices,
+      maxItemCount: 10,
     });
 
     input_concellos.addEventListener('addItem', event => {

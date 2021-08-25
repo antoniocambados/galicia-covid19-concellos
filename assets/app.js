@@ -188,12 +188,14 @@ function getChatOptions() {
 }
 
 function updateConcellos() {
-  Promise.all(window.concellos.map(concello => {
+  return Promise.all(window.concellos.map(concello => {
     return getConcello(concello);
   })).then((values) => {
     window.concellosData = values;
     window.chart.clear();
     window.chart.setOption(getChatOptions());
+
+    return Promise.resolve();
   });
 }
 
@@ -266,8 +268,15 @@ if (chartElement) {
 
     button_compare.addEventListener("click", e => {
       e.preventDefault();
+      let button = e.target;
+
+      button.classList.add('is-loading');
+      button.disabled='disabled';
       updateUserChartOptions();
-      updateConcellos();
+      updateConcellos().then(() => {
+        e.target.classList.remove('is-loading');
+        button.removeAttribute('disabled');
+      });
     });
   }
 }
